@@ -1,9 +1,11 @@
 # api documentation for  [basic-auth (v1.1.0)](https://github.com/jshttp/basic-auth)  [![npm package](https://img.shields.io/npm/v/npmdoc-basic-auth.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-basic-auth) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-basic-auth.svg)](https://travis-ci.org/npmdoc/node-npmdoc-basic-auth)
 #### node.js basic auth parser
 
-[![NPM](https://nodei.co/npm/basic-auth.png?downloads=true)](https://www.npmjs.com/package/basic-auth)
+[![NPM](https://nodei.co/npm/basic-auth.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/basic-auth)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-basic-auth/build/screenCapture.buildNpmdoc.browser._2Fhome_2Ftravis_2Fbuild_2Fnpmdoc_2Fnode-npmdoc-basic-auth_2Ftmp_2Fbuild_2Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-basic-auth/build/apidoc.html)
+- [https://npmdoc.github.io/node-npmdoc-basic-auth/build/apidoc.html](https://npmdoc.github.io/node-npmdoc-basic-auth/build/apidoc.html)
+
+[![apidoc](https://npmdoc.github.io/node-npmdoc-basic-auth/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-basic-auth/build/apidoc.html)
 
 ![npmPackageListing](https://npmdoc.github.io/node-npmdoc-basic-auth/build/screenCapture.npmPackageListing.svg)
 
@@ -54,25 +56,20 @@
     "license": "MIT",
     "maintainers": [
         {
-            "name": "dougwilson",
-            "email": "doug@somethingdoug.com"
+            "name": "dougwilson"
         },
         {
-            "name": "jonathanong",
-            "email": "jonathanrichardong@gmail.com"
+            "name": "jonathanong"
         },
         {
-            "name": "jongleberry",
-            "email": "jonathanrichardong@gmail.com"
+            "name": "jongleberry"
         },
         {
-            "name": "tjholowaychuk",
-            "email": "tj@vision-media.ca"
+            "name": "tjholowaychuk"
         }
     ],
     "name": "basic-auth",
     "optionalDependencies": {},
-    "readme": "ERROR: No README data found!",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/jshttp/basic-auth.git"
@@ -85,64 +82,6 @@
     },
     "version": "1.1.0"
 }
-```
-
-
-
-# <a name="apidoc.tableOfContents"></a>[table of contents](#apidoc.tableOfContents)
-
-#### [module basic-auth](#apidoc.module.basic-auth)
-1.  [function <span class="apidocSignatureSpan">basic-auth.</span>parse (string)](#apidoc.element.basic-auth.parse)
-
-
-
-# <a name="apidoc.module.basic-auth"></a>[module basic-auth](#apidoc.module.basic-auth)
-
-#### <a name="apidoc.element.basic-auth.parse"></a>[function <span class="apidocSignatureSpan">basic-auth.</span>parse (string)](#apidoc.element.basic-auth.parse)
-- description and source-code
-```javascript
-function parse(string) {
-  if (typeof string !== 'string') {
-    return undefined
-  }
-
-  // parse header
-  var match = CREDENTIALS_REGEXP.exec(string)
-
-  if (!match) {
-    return undefined
-  }
-
-  // decode user pass
-  var userPass = USER_PASS_REGEXP.exec(decodeBase64(match[1]))
-
-  if (!userPass) {
-    return undefined
-  }
-
-  // return credentials object
-  return new Credentials(userPass[1], userPass[2])
-}
-```
-- example usage
-```shell
-...
-
-### auth(req)
-
-Get the basic auth credentials from the given request. The 'Authorization'
-header is parsed and if the header is invalid, 'undefined' is returned,
-otherwise an object with 'name' and 'pass' properties.
-
-### auth.parse(string)
-
-Parse a basic auth authorization header string. This will return an object
-with 'name' and 'pass' properties, or 'undefined' if the string is invalid.
-
-## Example
-
-Pass a node request or koa Context object to the module exported. If
-...
 ```
 
 
