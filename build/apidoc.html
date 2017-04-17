@@ -63,9 +63,53 @@
 
         <li>
 
+            <a class="apidocElementLiA" href="#apidoc.element.basic-auth.basic-auth">
+            function <span class="apidocSignatureSpan"></span>basic-auth
+            <span class="apidocSignatureSpan">(req)</span>
+            </a>
+
+        </li>
+
+        <li>
+
             <a class="apidocElementLiA" href="#apidoc.element.basic-auth.parse">
             function <span class="apidocSignatureSpan">basic-auth.</span>parse
             <span class="apidocSignatureSpan">(string)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.basic-auth.toString">
+            function <span class="apidocSignatureSpan">basic-auth.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.basic-auth.parse">module basic-auth.parse</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.basic-auth.parse.parse">
+            function <span class="apidocSignatureSpan">basic-auth.</span>parse
+            <span class="apidocSignatureSpan">(string)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.basic-auth.toString">module basic-auth.toString</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.basic-auth.toString.toString">
+            function <span class="apidocSignatureSpan">basic-auth.</span>toString
+            <span class="apidocSignatureSpan">()</span>
             </a>
 
         </li>
@@ -76,6 +120,33 @@
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.basic-auth" id="apidoc.module.basic-auth">module basic-auth</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.basic-auth.basic-auth" id="apidoc.element.basic-auth.basic-auth">
+        function <span class="apidocSignatureSpan"></span>basic-auth
+        <span class="apidocSignatureSpan">(req)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function auth(req) {
+  if (!req) {
+    throw new TypeError(&#x27;argument req is required&#x27;)
+  }
+
+  if (typeof req !== &#x27;object&#x27;) {
+    throw new TypeError(&#x27;argument req is required to be an object&#x27;)
+  }
+
+  // get header
+  var header = getAuthorization(req.req || req)
+
+  // parse header
+  return parse(header)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
 
 
     <h2>
@@ -123,6 +194,124 @@ with `name` and `pass` properties, or `undefined` if the string is invalid.
 ## Example
 
 Pass a node request or koa Context object to the module exported. If
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.basic-auth.toString" id="apidoc.element.basic-auth.toString">
+        function <span class="apidocSignatureSpan">basic-auth.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toString = function () {
+    return text;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+/**
+* Decode base64 string.
+* @private
+*/
+
+function decodeBase64 (str) {
+ return new Buffer(str, &#x27;base64&#x27;).<span class="apidocCodeKeywordSpan">toString</span>()
+}
+
+/**
+* Get the Authorization header from request object.
+* @private
+*/
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.basic-auth.parse" id="apidoc.module.basic-auth.parse">module basic-auth.parse</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.basic-auth.parse.parse" id="apidoc.element.basic-auth.parse.parse">
+        function <span class="apidocSignatureSpan">basic-auth.</span>parse
+        <span class="apidocSignatureSpan">(string)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function parse(string) {
+  if (typeof string !== &#x27;string&#x27;) {
+    return undefined
+  }
+
+  // parse header
+  var match = CREDENTIALS_REGEXP.exec(string)
+
+  if (!match) {
+    return undefined
+  }
+
+  // decode user pass
+  var userPass = USER_PASS_REGEXP.exec(decodeBase64(match[1]))
+
+  if (!userPass) {
+    return undefined
+  }
+
+  // return credentials object
+  return new Credentials(userPass[1], userPass[2])
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+### auth(req)
+
+Get the basic auth credentials from the given request. The `Authorization`
+header is parsed and if the header is invalid, `undefined` is returned,
+otherwise an object with `name` and `pass` properties.
+
+### auth.<span class="apidocCodeKeywordSpan">parse</span>(string)
+
+Parse a basic auth authorization header string. This will return an object
+with `name` and `pass` properties, or `undefined` if the string is invalid.
+
+## Example
+
+Pass a node request or koa Context object to the module exported. If
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.basic-auth.toString" id="apidoc.module.basic-auth.toString">module basic-auth.toString</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.basic-auth.toString.toString" id="apidoc.element.basic-auth.toString.toString">
+        function <span class="apidocSignatureSpan">basic-auth.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function toString() { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+/**
+* Decode base64 string.
+* @private
+*/
+
+function decodeBase64 (str) {
+ return new Buffer(str, &#x27;base64&#x27;).<span class="apidocCodeKeywordSpan">toString</span>()
+}
+
+/**
+* Get the Authorization header from request object.
+* @private
+*/
 ...</pre></li>
     </ul>
 

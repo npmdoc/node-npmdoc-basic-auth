@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="https://github.com/jshttp/basic-auth"
-
-    >basic-auth (v1.1.0)</a>
+    <a href="https://github.com/jshttp/basic-auth">basic-auth (v1.1.0)</a>
 </h1>
 <h4>node.js basic auth parser</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.basic-auth">module basic-auth</a><ol>
 
@@ -131,11 +124,11 @@
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function auth(req) {
   if (!req) {
-    throw new TypeError(&#x27;argument req is required&#x27;)
+    throw new TypeError('argument req is required')
   }
 
-  if (typeof req !== &#x27;object&#x27;) {
-    throw new TypeError(&#x27;argument req is required to be an object&#x27;)
+  if (typeof req !== 'object') {
+    throw new TypeError('argument req is required to be an object')
   }
 
   // get header
@@ -157,7 +150,7 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function parse(string) {
-  if (typeof string !== &#x27;string&#x27;) {
+  if (typeof string !== 'string') {
     return undefined
   }
 
@@ -217,7 +210,7 @@ Pass a node request or koa Context object to the module exported. If
 */
 
 function decodeBase64 (str) {
- return new Buffer(str, &#x27;base64&#x27;).<span class="apidocCodeKeywordSpan">toString</span>()
+ return new Buffer(str, 'base64').<span class="apidocCodeKeywordSpan">toString</span>()
 }
 
 /**
@@ -242,7 +235,7 @@ function decodeBase64 (str) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function parse(string) {
-  if (typeof string !== &#x27;string&#x27;) {
+  if (typeof string !== 'string') {
     return undefined
   }
 
@@ -305,7 +298,7 @@ Pass a node request or koa Context object to the module exported. If
 */
 
 function decodeBase64 (str) {
- return new Buffer(str, &#x27;base64&#x27;).<span class="apidocCodeKeywordSpan">toString</span>()
+ return new Buffer(str, 'base64').<span class="apidocCodeKeywordSpan">toString</span>()
 }
 
 /**
@@ -324,3 +317,4 @@ function decodeBase64 (str) {
     ]
 </div>
 </div>
+</body></html>
