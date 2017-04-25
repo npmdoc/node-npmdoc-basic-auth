@@ -65,6 +65,15 @@
 
         <li>
 
+            <a class="apidocElementLiA" href="#apidoc.element.basic-auth.index">
+            function <span class="apidocSignatureSpan">basic-auth.</span>index
+            <span class="apidocSignatureSpan">(req)</span>
+            </a>
+
+        </li>
+
+        <li>
+
             <a class="apidocElementLiA" href="#apidoc.element.basic-auth.parse">
             function <span class="apidocSignatureSpan">basic-auth.</span>parse
             <span class="apidocSignatureSpan">(string)</span>
@@ -72,37 +81,24 @@
 
         </li>
 
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.basic-auth.index">module basic-auth.index</a><ol>
+
         <li>
 
-            <a class="apidocElementLiA" href="#apidoc.element.basic-auth.toString">
-            function <span class="apidocSignatureSpan">basic-auth.</span>toString
-            <span class="apidocSignatureSpan">()</span>
+            <a class="apidocElementLiA" href="#apidoc.element.basic-auth.index.index">
+            function <span class="apidocSignatureSpan">basic-auth.</span>index
+            <span class="apidocSignatureSpan">(req)</span>
             </a>
 
         </li>
 
-    </ol></li>
-
-    <li class="apidocModuleLi"><a href="#apidoc.module.basic-auth.parse">module basic-auth.parse</a><ol>
-
         <li>
 
-            <a class="apidocElementLiA" href="#apidoc.element.basic-auth.parse.parse">
-            function <span class="apidocSignatureSpan">basic-auth.</span>parse
+            <a class="apidocElementLiA" href="#apidoc.element.basic-auth.index.parse">
+            function <span class="apidocSignatureSpan">basic-auth.index.</span>parse
             <span class="apidocSignatureSpan">(string)</span>
-            </a>
-
-        </li>
-
-    </ol></li>
-
-    <li class="apidocModuleLi"><a href="#apidoc.module.basic-auth.toString">module basic-auth.toString</a><ol>
-
-        <li>
-
-            <a class="apidocElementLiA" href="#apidoc.element.basic-auth.toString.toString">
-            function <span class="apidocSignatureSpan">basic-auth.</span>toString
-            <span class="apidocSignatureSpan">()</span>
             </a>
 
         </li>
@@ -118,6 +114,33 @@
     <h2>
         <a href="#apidoc.element.basic-auth.basic-auth" id="apidoc.element.basic-auth.basic-auth">
         function <span class="apidocSignatureSpan"></span>basic-auth
+        <span class="apidocSignatureSpan">(req)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function auth(req) {
+  if (!req) {
+    throw new TypeError('argument req is required')
+  }
+
+  if (typeof req !== 'object') {
+    throw new TypeError('argument req is required to be an object')
+  }
+
+  // get header
+  var header = getAuthorization(req.req || req)
+
+  // parse header
+  return parse(header)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.basic-auth.index" id="apidoc.element.basic-auth.index">
+        function <span class="apidocSignatureSpan">basic-auth.</span>index
         <span class="apidocSignatureSpan">(req)</span>
         </a>
     </h2>
@@ -191,45 +214,42 @@ Pass a node request or koa Context object to the module exported. If
     </ul>
 
 
-
-    <h2>
-        <a href="#apidoc.element.basic-auth.toString" id="apidoc.element.basic-auth.toString">
-        function <span class="apidocSignatureSpan">basic-auth.</span>toString
-        <span class="apidocSignatureSpan">()</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">toString = function () {
-    return text;
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-
-/**
-* Decode base64 string.
-* @private
-*/
-
-function decodeBase64 (str) {
- return new Buffer(str, 'base64').<span class="apidocCodeKeywordSpan">toString</span>()
-}
-
-/**
-* Get the Authorization header from request object.
-* @private
-*/
-...</pre></li>
-    </ul>
-
-
 </div>
 
 <div class="apidocSectionDiv">
-<h1><a href="#apidoc.module.basic-auth.parse" id="apidoc.module.basic-auth.parse">module basic-auth.parse</a></h1>
+<h1><a href="#apidoc.module.basic-auth.index" id="apidoc.module.basic-auth.index">module basic-auth.index</a></h1>
 
 
     <h2>
-        <a href="#apidoc.element.basic-auth.parse.parse" id="apidoc.element.basic-auth.parse.parse">
-        function <span class="apidocSignatureSpan">basic-auth.</span>parse
+        <a href="#apidoc.element.basic-auth.index.index" id="apidoc.element.basic-auth.index.index">
+        function <span class="apidocSignatureSpan">basic-auth.</span>index
+        <span class="apidocSignatureSpan">(req)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function auth(req) {
+  if (!req) {
+    throw new TypeError('argument req is required')
+  }
+
+  if (typeof req !== 'object') {
+    throw new TypeError('argument req is required to be an object')
+  }
+
+  // get header
+  var header = getAuthorization(req.req || req)
+
+  // parse header
+  return parse(header)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.basic-auth.index.parse" id="apidoc.element.basic-auth.index.parse">
+        function <span class="apidocSignatureSpan">basic-auth.index.</span>parse
         <span class="apidocSignatureSpan">(string)</span>
         </a>
     </h2>
@@ -272,39 +292,6 @@ with `name` and `pass` properties, or `undefined` if the string is invalid.
 ## Example
 
 Pass a node request or koa Context object to the module exported. If
-...</pre></li>
-    </ul>
-
-
-</div>
-
-<div class="apidocSectionDiv">
-<h1><a href="#apidoc.module.basic-auth.toString" id="apidoc.module.basic-auth.toString">module basic-auth.toString</a></h1>
-
-
-    <h2>
-        <a href="#apidoc.element.basic-auth.toString.toString" id="apidoc.element.basic-auth.toString.toString">
-        function <span class="apidocSignatureSpan">basic-auth.</span>toString
-        <span class="apidocSignatureSpan">()</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">function toString() { [native code] }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-
-/**
-* Decode base64 string.
-* @private
-*/
-
-function decodeBase64 (str) {
- return new Buffer(str, 'base64').<span class="apidocCodeKeywordSpan">toString</span>()
-}
-
-/**
-* Get the Authorization header from request object.
-* @private
-*/
 ...</pre></li>
     </ul>
 
