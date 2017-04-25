@@ -1,4 +1,7 @@
-# api documentation for  [basic-auth (v1.1.0)](https://github.com/jshttp/basic-auth)  [![npm package](https://img.shields.io/npm/v/npmdoc-basic-auth.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-basic-auth) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-basic-auth.svg)](https://travis-ci.org/npmdoc/node-npmdoc-basic-auth)
+# npmdoc-basic-auth
+
+#### basic api documentation for  [basic-auth (v1.1.0)](https://github.com/jshttp/basic-auth)  [![npm package](https://img.shields.io/npm/v/npmdoc-basic-auth.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-basic-auth) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-basic-auth.svg)](https://travis-ci.org/npmdoc/node-npmdoc-basic-auth)
+
 #### node.js basic auth parser
 
 [![NPM](https://nodei.co/npm/basic-auth.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/basic-auth)
@@ -80,7 +83,8 @@
         "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- --reporter dot --check-leaks test/",
         "test-travis": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --reporter spec --check-leaks test/"
     },
-    "version": "1.1.0"
+    "version": "1.1.0",
+    "bin": {}
 }
 ```
 
